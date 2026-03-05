@@ -3,29 +3,22 @@
    Pembuat      : Agil Yudis Wibawa (24060124120045)
    Tanggal      : 4:28 PM 2/26/2026 */
 
-   public class Titik {
-    /*************************ATRIBUT*************************/
-    double absis;
-    double ordinat;
-    static int counterTitik = 0;
+    public class Titik {
+     /*************************ATRIBUT*************************/
+     private double absis;
+     private double ordinat;
+     private static int counterTitik = 0;
     
     /*************************METHOD*************************/
-    // mengeset absis dan ordinat titik
-    public void ThisTitik(double absis, double ordinat){
+    // konstruktor titik tanpa parameter (menghasilkan titik (0,0))
+    public Titik(){
+        this(0, 0);
+    }
+
+    // konstruktor titik dengan parameter absis dan ordinat
+    public Titik(double absis, double ordinat){
         this.absis = absis;
         this.ordinat = ordinat;
-        counterTitik++;
-    }
-
-    public Titik(){
-        absis = 0;
-        ordinat = 0;
-        counterTitik++;
-    }
-
-    public Titik(double x, double y){
-        absis = x;
-        ordinat = y;
         counterTitik++;
     }
 
