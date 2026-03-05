@@ -1,47 +1,61 @@
-// Nama        : Titik.java
-// Deskripsi   : berisi atribut dan method dalam class Titik
-// Pembuat     : Agil Yudis Wibawa 24060124120045
-// Tanggal     : 1:42 PM 3/2/2026
+/* 
+   Nama File    : Titik.java
+   Deskripsi    : Kelas Titik beserta atribut dan methodnya.
+   Pembuat      : Agil Yudis Wibawa (24060124120045)
+   Tanggal      : 02/03/2026 
+*/
 
-public class Titik {
-    /************ATRIBUT************/
+public class Titik 
+{
+    /*************************ATRIBUT*************************/
     double absis;
     double ordinat;
 
-    /************METHOD************/
-    Titik() {
+    /*************************METHOD*************************/
+    // Konstruktor tanpa parameter
+    Titik() 
+    {
         absis = 0;
         ordinat = 0;
     }
 
-    // mengembalikan nilai absis
-    double getAbsis() {
+    /************************SELEKTOR*************************/
+    // Mengembalikan nilai absis
+    double getAbsis() 
+    {
         return absis;
     }
-    
-    // mengembalikan nilai ordinat
 
-    double getOrdinat() {
+    // Mengembalikan nilai ordinat
+    double getOrdinat() 
+    {
         return ordinat;
     }
 
-    // mengeset absis titik dengan nilai baru x
-    void setAbsis(double x) {
+    /************************MUTATOR**************************/
+    // Mengeset absis titik dengan nilai baru x
+    void setAbsis(double x) 
+    {
         absis = x;
     }
 
-    void setOrdinat(double y) {
+    // Mengeset ordinat titik dengan nilai baru y
+    void setOrdinat(double y) 
+    {
         ordinat = y;
     }
 
-    // menggeser nilai absis dan ordinat titik masing masing sejauh x dan y
-    void geser(double x, double y) {
+    /*********************METHOD LAIN*************************/
+    // Menggeser nilai absis dan ordinat titik masing-masing sejauh x dan y
+    void geser(double x, double y) 
+    {
         absis = absis + x;
         ordinat = ordinat + y;
     }
-    
-    // mencetak koordinat titik
-    void printTitik() {
+
+    // Mencetak koordinat titik
+    void printTitik() 
+    {
         System.out.println("Titik (" + absis + "," + ordinat + ")");
     }
 }
