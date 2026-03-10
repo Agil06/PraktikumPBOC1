@@ -1,3 +1,10 @@
+/* 
+   Nama File    : App.java
+   Deskripsi    : Program pengenalan Java dasar (variabel, kondisional, array, dan looping).
+   Pembuat      : Agil Yudis Wibawa (24060124120045)
+   Tanggal      : 02/03/2026 
+*/
+
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");

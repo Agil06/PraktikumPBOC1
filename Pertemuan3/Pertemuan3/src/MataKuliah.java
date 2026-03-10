@@ -11,7 +11,7 @@ public class MataKuliah
     private String idMatKul;
     private int SKS;
 
-    /*************************METHOD*************************/
+    /***********************KONSTRUKTOR***********************/
     // Konstruktor tanpa parameter
     public MataKuliah() 
     {
@@ -26,22 +26,26 @@ public class MataKuliah
     }
 
     /************************SELEKTOR*************************/
+    // Mengembalikan ID mata kuliah
     public String getMatkul()
     {
         return idMatKul;
     }
 
+    // Mengembalikan jumlah SKS mata kuliah
     public int getSKS()
     {
         return SKS;
     }
 
     /************************MUTATOR**************************/
+    // Mengeset ID mata kuliah
     public void setMatkul(String idMatKul)
     {
         this.idMatKul = idMatKul;
     }
     
+    // Mengeset jumlah SKS mata kuliah
     public void setSKS(int SKS)
     {
         this.SKS = SKS;

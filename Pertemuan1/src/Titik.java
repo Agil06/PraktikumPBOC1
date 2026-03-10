@@ -11,7 +11,7 @@ public class Titik
     double absis;
     double ordinat;
 
-    /*************************METHOD*************************/
+    /***********************KONSTRUKTOR***********************/
     // Konstruktor tanpa parameter
     Titik() 
     {

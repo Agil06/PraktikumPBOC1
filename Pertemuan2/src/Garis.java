@@ -12,7 +12,7 @@ public class Garis
     private Titik titikAkhir;
     private static int counterGaris = 0;
 
-    /*************************METHOD*************************/
+    /***********************KONSTRUKTOR***********************/
     // Konstruktor tanpa parameter: (0,0) ke (1,1)
     public Garis()
     {
@@ -28,8 +28,11 @@ public class Garis
     }
 
     /************************SELEKTOR*************************/
+    // Mengembalikan titik awal garis
     public Titik getTitikAwal() { return titikAwal; }
+    // Mengembalikan titik akhir garis
     public Titik getTitikAkhir() { return titikAkhir; }
+    // Mengembalikan jumlah objek garis yang telah dibuat
     public static int getCounterGaris() { return counterGaris; }
 
     // Mendapatkan panjang garis
@@ -67,7 +70,9 @@ public class Garis
     }
 
     /************************MUTATOR**************************/
+    // Mengeset titik awal garis
     public void setTitikAwal(Titik titikAwal) { this.titikAwal = titikAwal; }
+    // Mengeset titik akhir garis
     public void setTitikAkhir(Titik titikAkhir) { this.titikAkhir = titikAkhir; }
 
     /*********************METHOD LAIN*************************/

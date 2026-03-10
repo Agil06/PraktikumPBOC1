@@ -17,7 +17,7 @@ public class Mahasiswa
     private Dosen dosenWali;                  // 1 dosen wali (wajib)
     private Kendaraan kendaraan;              // 0..1 kendaraan
     
-    /*************************METHOD*************************/
+    /***********************KONSTRUKTOR***********************/
     // Konstruktor tanpa parameter
     public Mahasiswa()
     {
@@ -36,17 +36,27 @@ public class Mahasiswa
     }
     
     /************************SELEKTOR*************************/
+    // Mengembalikan NIM mahasiswa
     public String getNIM() { return NIM; }
+    // Mengembalikan nama mahasiswa
     public String getNama() { return Nama; }
+    // Mengembalikan prodi mahasiswa
     public String getProdi() { return Prodi; }
+    // Mengembalikan dosen wali mahasiswa
     public Dosen getDosenWali() { return dosenWali; }
+    // Mengembalikan kendaraan mahasiswa
     public Kendaraan getKendaraan() { return kendaraan; }
     
     /************************MUTATOR**************************/
+    // Mengeset NIM mahasiswa
     public void setNIM(String NIM) { this.NIM = NIM; }
+    // Mengeset nama mahasiswa
     public void setNama(String Nama) { this.Nama = Nama; }
+    // Mengeset prodi mahasiswa
     public void setProdi(String Prodi) { this.Prodi = Prodi; }
+    // Mengeset dosen wali mahasiswa
     public void setDosenWali(Dosen dosenWali) { this.dosenWali = dosenWali; }
+    // Mengeset kendaraan mahasiswa
     public void setKendaraan(Kendaraan kendaraan) { this.kendaraan = kendaraan; }
     
     /*********************METHOD LAIN*************************/

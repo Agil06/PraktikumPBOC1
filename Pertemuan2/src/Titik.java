@@ -12,7 +12,7 @@ public class Titik
     private double ordinat;
     private static int counterTitik = 0;
 
-    /*************************METHOD*************************/
+    /***********************KONSTRUKTOR***********************/
     // Konstruktor tanpa parameter (menghasilkan titik (0,0))
     public Titik()
     {
@@ -131,6 +131,7 @@ public class Titik
         this.absis = this.absis * -1;
     }
 
+    // Mengembalikan representasi string dari titik
     @Override
     public String toString()
     {

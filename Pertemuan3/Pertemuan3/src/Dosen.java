@@ -12,7 +12,7 @@ public class Dosen
     private String Nama;
     private String Prodi;
 
-    /*************************METHOD*************************/
+    /***********************KONSTRUKTOR***********************/
     // Konstruktor tanpa parameter
     public Dosen()
     {
@@ -28,27 +28,33 @@ public class Dosen
     }
 
     /************************SELEKTOR*************************/
+    // Mengembalikan NIP dosen
     public String getNIP() {
         return NIP;
     }
 
+    // Mengembalikan nama dosen
     public String getNama() {
         return Nama;
     }
 
+    // Mengembalikan prodi dosen
     public String getProdi() {
         return Prodi;
     }
 
     /************************MUTATOR**************************/
+    // Mengeset NIP dosen
     public void setNIP(String NIP) {
         this.NIP = NIP;
     }
 
+    // Mengeset nama dosen
     public void setNama(String Nama) {
         this.Nama = Nama;
     }
 
+    // Mengeset prodi dosen
     public void setProdi(String Prodi) {
         this.Prodi = Prodi;
     }
