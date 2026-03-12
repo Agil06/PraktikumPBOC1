@@ -5,45 +5,44 @@
    Tanggal      : 4:12 PM 3/12/2026
 */
 
+// Definisi kelas abstrak bangun datar
+
+
 public abstract class BangunDatar {
+    /*************************ATRIBUT*************************/
     protected int jmlSisi;
     protected String warna;
     protected String border;
     private static int counterBangunDatar = 0;
-
+    
+    /*************************METHOD*************************/
+    /*************************Konstruktor*************************/
+    // Konstruktor tanpa parameter
     public BangunDatar()
     {
         counterBangunDatar++;
-
+        
     }
     
+    // Konstruktor dengan parameter
     public BangunDatar(int jmlSisi, String warna, String border)
     {
         this.jmlSisi = jmlSisi;
         this.warna = warna;
         this.border = border;
         counterBangunDatar++;
-
+        
     }
-
+    
+    /*************************Selektor*************************/
     public int getJmlSisi()
     {
         return jmlSisi;
-    }
-
-    public void setJmlSisi(int jmlSisi)
-    {
-        this.jmlSisi = jmlSisi;
     }
     
     public String getWarna()
     {
         return warna;
-    }
-    
-    public void setWarna(String warna)
-    {
-        this.warna = warna;
     }
 
     public String getBorder()
@@ -51,11 +50,23 @@ public abstract class BangunDatar {
         return border;
     }
 
+    /*************************Mutator*************************/
+    public void setJmlSisi(int jmlSisi)
+    {
+        this.jmlSisi = jmlSisi;
+    }
+    
+    public void setWarna(String warna)
+    {
+        this.warna = warna;
+    }
+
     public void setBorder(String border)
     {
         this.border = border;
     }
-
+    
+    /*************************Method Tambahan*************************/
     public void printInfo()
     {
         System.out.println("Jumlah sisi: " + jmlSisi);
