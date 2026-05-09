@@ -7,11 +7,8 @@
  * Deskripsi  : Kelas kucing
  */
 public class Kucing extends Anabul {
-    /************ATRIBUT****************/
     public double bobot;
     
-    /**********METHOD*******************/
-    //KONSTRUKTOR
     public Kucing(String nama) { super(nama); }
 
     public Kucing(String nama, double bobot) {
@@ -22,7 +19,6 @@ public class Kucing extends Anabul {
     public double getBobot() { return this.bobot; }
     public void setBobot(double bobot) { this.bobot = bobot; }
 
-    //METHOD TAMBAHAN
     @Override
     public void gerak() { System.out.println(nama + " bergerak dengan melata."); }
     @Override
