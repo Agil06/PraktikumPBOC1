@@ -4,6 +4,15 @@
  * Tanggal : 7 Mei 2026
  * File    : Main.java
 */
+
+/**
+ * Nama       : Agil Yudis Wibawa
+ * NIM        : 24060124120045
+ * Lab        : C1
+ * Tanggal    : 9 April 2026
+ * File       : Main.java
+ * Deskripsi  : Driver
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("============== BAGIAN 1: Teman ==============");
