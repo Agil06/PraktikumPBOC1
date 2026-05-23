@@ -102,8 +102,8 @@ public class GUI0 extends javax.swing.JFrame {
         addItem(jTextField1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
+    /** 
+    * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
