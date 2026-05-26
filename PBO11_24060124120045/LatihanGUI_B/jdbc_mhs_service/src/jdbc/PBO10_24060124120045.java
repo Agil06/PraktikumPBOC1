@@ -24,7 +24,7 @@ public class PBO10_24060124120045 {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
         String user = "root";
-        String password = "Rahasia"; // Sesuaikan password MySQL-mu (sama dengan MysqlUtility)
+        String password = "1234"; // Sesuaikan password MySQL-mu (sama dengan MysqlUtility)
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

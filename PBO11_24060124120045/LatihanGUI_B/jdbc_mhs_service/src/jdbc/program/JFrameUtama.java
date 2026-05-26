@@ -4,21 +4,39 @@
  */
 package jdbc.program;
 
+import jdbc.model.Mahasiswa;
+import jdbc.service.MysqlMahasiswaService;
+import javax.swing.DefaultListModel;
+import java.util.List;
+
 /**
  *
  * @author AGIL
  */
 public class JFrameUtama extends javax.swing.JFrame {
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JFrameUtama.class.getName());
+    private MysqlMahasiswaService service = new MysqlMahasiswaService();
+    private DefaultListModel<String> dlmID = new DefaultListModel<>();
+    private DefaultListModel<String> dlmNama = new DefaultListModel<>();
 
     /**
      * Creates new form JFrameUtama
      */
     public JFrameUtama() {
-        initComponents();
+    initComponents();
+    ListID.setModel(dlmID);
+    ListNama.setModel(dlmNama);
     }
 
+    private void refreshTable() {
+        dlmID.clear();
+        dlmNama.clear();
+        List<Mahasiswa> list = service.getAll();
+        for (Mahasiswa mhs : list) {
+            dlmID.addElement(String.valueOf(mhs.getId()));
+            dlmNama.addElement(mhs.getNama());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,71 +47,66 @@ public class JFrameUtama extends javax.swing.JFrame {
     private void initComponents() {
 
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel1 = new javax.swing.JLabel();
+        LabelID = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ListID = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ListNama = new javax.swing.JList<>();
+        LabelNama = new javax.swing.JLabel();
+        Judul = new javax.swing.JLabel();
+        AmbilSemuaData = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        TextFieldNama = new javax.swing.JTextField();
+        ButtonTambahkan = new javax.swing.JButton();
+        IDEdit = new javax.swing.JTextField();
+        NAMAEDIT = new javax.swing.JTextField();
+        TextboxID2 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        ButtonEdit = new javax.swing.JButton();
+        ButtonHapus = new javax.swing.JButton();
+        ResetIndeks = new javax.swing.JButton();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        LabelID.setText("ID");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        ListID.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(ListID);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        ListNama.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(ListNama);
 
-        jLabel2.setText("jLabel2");
+        LabelNama.setText("Nama");
 
-        jLabel3.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
-        jLabel3.setText("jLabel3");
+        Judul.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        Judul.setText("KelolaDataMahasiswa");
 
-        jButton1.setText("jButton1");
+        AmbilSemuaData.setText("Ambil Semua Data");
+        AmbilSemuaData.addActionListener(this::AmbilSemuaDataActionPerformed);
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Nama:");
 
-        jTextField1.setText("jTextField1");
+        ButtonTambahkan.setText("Tambahkan");
+        ButtonTambahkan.addActionListener(this::ButtonTambahkanActionPerformed);
 
-        jButton2.setText("jButton2");
+        ButtonEdit.setText("Edit");
+        ButtonEdit.addActionListener(this::ButtonEditActionPerformed);
 
-        jTextField2.setText("jTextField2");
+        ButtonHapus.setText("Hapus");
+        ButtonHapus.addActionListener(this::ButtonHapusActionPerformed);
 
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-
-        jTextField5.setText("jTextField5");
-
-        jButton3.setText("jButton3");
-
-        jButton4.setText("jButton4");
-
-        jButton5.setText("jButton5");
+        ResetIndeks.setText("Reset Indeks");
+        ResetIndeks.addActionListener(this::ResetIndeksActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,38 +115,39 @@ public class JFrameUtama extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(LabelID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1)
+                            .addComponent(AmbilSemuaData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TextFieldNama)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jButton2)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jTextField2)
-                                            .addComponent(jTextField4))
+                                            .addComponent(IDEdit)
+                                            .addComponent(TextboxID2))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                                            .addComponent(jTextField3))
+                                            .addComponent(NAMAEDIT))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton3)
-                                            .addComponent(jButton4)))
-                                    .addComponent(jButton5))
-                                .addGap(0, 11, Short.MAX_VALUE))))
+                                            .addComponent(ButtonEdit)
+                                            .addComponent(ButtonHapus)))
+                                    .addComponent(ResetIndeks)
+                                    .addComponent(ButtonTambahkan, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 47, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(LabelNama)
                         .addGap(107, 107, 107)
-                        .addComponent(jLabel3)
+                        .addComponent(Judul)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -142,38 +156,91 @@ public class JFrameUtama extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(LabelID)
+                    .addComponent(LabelNama)
+                    .addComponent(Judul))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(AmbilSemuaData)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(ButtonTambahkan)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
+                            .addComponent(IDEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NAMAEDIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonEdit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextboxID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4))
+                            .addComponent(ButtonHapus))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(jButton5)))
+                        .addComponent(ResetIndeks)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ButtonTambahkanActionPerformed(java.awt.event.ActionEvent evt) {
+    String nama = TextFieldNama.getText().trim();
+    if (!nama.isEmpty()) {
+        Mahasiswa mhs = service.makeMhsObject();
+        mhs.setNama(nama);
+        service.add(mhs);
+        refreshTable();
+        TextFieldNama.setText("");
+    }
+}
+    private void ResetIndeksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetIndeksActionPerformed
+        // TODO add your handling code here:
+        service.indexReset();
+        refreshTable();
+        
+    }//GEN-LAST:event_ResetIndeksActionPerformed
+
+    private void ButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditActionPerformed
+        // TODO add your handling code here:
+        try {
+        int id = Integer.parseInt(IDEdit.getText().trim());
+        String nama = NAMAEDIT.getText().trim();
+        if (!nama.isEmpty()) {
+            Mahasiswa mhs = new Mahasiswa(id, nama);
+            service.update(mhs);
+            refreshTable();
+            IDEdit.setText("");
+            NAMAEDIT.setText("");
+        }
+    } catch (NumberFormatException e) {
+        jLabel4.setText("ID tidak valid!");
+        }
+    }//GEN-LAST:event_ButtonEditActionPerformed
+
+    private void ButtonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonHapusActionPerformed
+        // TODO add your handling code here:
+            try {
+        int id = Integer.parseInt(TextboxID2.getText().trim());
+        service.delete(id);
+        refreshTable();
+        TextboxID2.setText("");
+        jTextField5.setText("");
+    } catch (NumberFormatException e) {
+        jLabel4.setText("ID tidak valid!");
+    }
+    }//GEN-LAST:event_ButtonHapusActionPerformed
+
+    private void AmbilSemuaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmbilSemuaDataActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+        
+    }//GEN-LAST:event_AmbilSemuaDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,24 +268,24 @@ public class JFrameUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton AmbilSemuaData;
+    private javax.swing.JButton ButtonEdit;
+    private javax.swing.JButton ButtonHapus;
+    private javax.swing.JButton ButtonTambahkan;
+    private javax.swing.JTextField IDEdit;
+    private javax.swing.JLabel Judul;
+    private javax.swing.JLabel LabelID;
+    private javax.swing.JLabel LabelNama;
+    private javax.swing.JList<String> ListID;
+    private javax.swing.JList<String> ListNama;
+    private javax.swing.JTextField NAMAEDIT;
+    private javax.swing.JButton ResetIndeks;
+    private javax.swing.JTextField TextFieldNama;
+    private javax.swing.JTextField TextboxID2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

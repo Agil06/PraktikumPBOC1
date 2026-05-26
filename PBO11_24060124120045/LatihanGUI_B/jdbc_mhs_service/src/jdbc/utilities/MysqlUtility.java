@@ -13,7 +13,7 @@ public class MysqlUtility {
                 // Sesuaikan username dan password database kamu di sini
                 String url = "jdbc:mysql://localhost:3306/jdbc_mhs";
                 String user = "root"; 
-                String password = "Rahasia"; 
+                String password = "1234"; 
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(url, user, password);
