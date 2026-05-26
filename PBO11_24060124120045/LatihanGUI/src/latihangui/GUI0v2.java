@@ -8,14 +8,14 @@ import javax.swing.DefaultListModel;
  *
  * @author AGIL
  */
-public class GUI extends javax.swing.JFrame {
+public class GUI0v2 extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUI.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUI0v2.class.getName());
     DefaultListModel<String> dlm;
     /**
      * Creates new form GUI
      */
-    public GUI() {
+    public GUI0v2() {
         initComponents();
         this.dlm = new DefaultListModel<>();
         this.jList1.setModel(dlm);
@@ -186,7 +186,7 @@ public class GUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUI().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GUI0v2().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
