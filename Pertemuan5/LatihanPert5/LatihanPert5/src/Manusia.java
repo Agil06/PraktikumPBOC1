@@ -5,17 +5,23 @@
   Tanggal   : 02 April 2026
 */
 
+
+
+/*********************METHOD LAIN*************************/
+
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public abstract class Manusia {
+  /*************************ATRIBUT*************************/
   private String nama;
   private Date tgl_mulai_kerja;
   private String alamat;
   private double pendapatan;
   private static int counterMns = 0;
-
+  
   // Konstruktor tanpa parameter
+  /***********************KONSTRUKTOR***********************/
   public Manusia() {
     this.nama = "Belum diisi";
     this.tgl_mulai_kerja = new Date();
@@ -45,40 +51,40 @@ public abstract class Manusia {
   // Abstract method untuk menghitung pajak
   protected abstract int hitungMasaKerja();
 
+  /************************SELEKTOR*************************/
   // Getters and Setters
-  public String getNama() {
-    return nama;
-  }
-
-  public void setNama(String nama) {
-    this.nama = nama;
-  }
-
   public Date getTglMulaiKerja() {
     return tgl_mulai_kerja;
   }
 
-  public void setTglMulaiKerja(Date tgl) {
-    this.tgl_mulai_kerja = tgl;
+  public String getNama() {
+    return nama;
   }
 
   public String getAlamat() {
     return alamat;
   }
+  
+  public static int getCounterMns() {
+    return counterMns;
+  }
 
+    public double getPendapatan() {
+      return pendapatan;
+    }
+    
+  /************************MUTATOR**************************/
+  public void setNama(String nama) {
+    this.nama = nama;
+  }
+  public void setTglMulaiKerja(Date tgl) {
+    this.tgl_mulai_kerja = tgl;
+  }
   public void setAlamat(String alamat) {
     this.alamat = alamat;
   }
-
-  public double getPendapatan() {
-    return pendapatan;
-  }
-
+  
   public void setPendapatan(double pendapatan) {
     this.pendapatan = pendapatan;
-  }
-
-  public static int getCounterMns() {
-    return counterMns;
   }
 }

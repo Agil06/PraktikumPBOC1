@@ -47,7 +47,7 @@ public class Pengusaha extends Manusia implements Pajak {
     System.out.println("NPWP: " + npwp);
   }
 
-  // Getters and setters
+  /***********************KONSTRUKTOR & SELEKTOR***********************/
   public String getNpwp() {
     return npwp;
   }
